@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -124,5 +124,826 @@
     <h2>Contact</h2>
     <p>Email: zz360@duke.edu or zeyu.zhang@dukekunshan.edu.cn</p>
 
+</body>
+
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZEYU ZHANG | Computer Science x Data Science(DEEP LEARNING)</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400&family=Playfair+Display:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0a0a0f;
+            --secondary: #1a1a2e;
+            --accent: #ff6b8b;
+            --accent2: #7a57d1;
+            --accent3: #00d4ff;
+            --text: #f5f5f7;
+            --text-secondary: #b0b0c0;
+            --gold: #ffd700;
+            --transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Cormorant Garamond', serif;
+            background: 
+                radial-gradient(ellipse at 20% 20%, rgba(122, 87, 209, 0.15) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 80%, rgba(255, 107, 139, 0.1) 0%, transparent 50%),
+                linear-gradient(135deg, #0a0a0f 0%, #1a1a2e 50%, #0c0c1a 100%);
+            color: var(--text);
+            line-height: 1.8;
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* 背景粒子效果 */
+        #particles-js {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            top: 0;
+            left: 0;
+        }
+
+        /* 音乐播放器 */
+        .music-player {
+            position: fixed;
+            top: 30px;
+            right: 30px;
+            z-index: 1000;
+            background: rgba(26, 26, 46, 0.8);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 50px;
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            transition: var(--transition);
+        }
+
+        .music-player:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .music-controls {
+            display: flex;
+            gap: 10px;
+        }
+
+        .music-btn {
+            background: transparent;
+            border: none;
+            color: var(--accent);
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: var(--transition);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .music-btn:hover {
+            background: rgba(255, 107, 139, 0.1);
+            transform: scale(1.1);
+        }
+
+        .music-info {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        /* 主容器 */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 100px 40px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* 头部 */
+        .hero-section {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            padding-top: 100px;
+        }
+
+        .title-container {
+            margin-bottom: 80px;
+            position: relative;
+        }
+
+        .name {
+            font-family: 'Playfair Display', serif;
+            font-size: 6rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent2) 50%, var(--accent3) 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            line-height: 1;
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .name::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--accent), transparent);
+        }
+
+        .subtitle {
+            font-size: 1.8rem;
+            color: var(--text-secondary);
+            font-weight: 300;
+            letter-spacing: 3px;
+            margin-bottom: 40px;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .subtitle::before {
+            content: '//';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .quote {
+            font-size: 1.4rem;
+            font-style: italic;
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin: 40px 0;
+            padding: 30px;
+            border-left: 3px solid var(--accent);
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(10px);
+            border-radius: 0 10px 10px 0;
+        }
+
+        /* 个人照片 */
+        .profile-container {
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 400px;
+            height: 500px;
+        }
+
+        .profile-frame {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 
+                0 30px 60px rgba(0, 0, 0, 0.5),
+                inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+        }
+
+        .profile-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: grayscale(0.2) contrast(1.1);
+            transition: var(--transition);
+        }
+
+        .profile-frame::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent 30%, rgba(255, 107, 139, 0.1) 100%);
+            z-index: 1;
+        }
+
+        /* 内容卡片 */
+        .section {
+            margin: 150px 0;
+            position: relative;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-weight: 600;
+            margin-bottom: 60px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .section-title::before {
+            content: '';
+            width: 50px;
+            height: 2px;
+            background: var(--accent);
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .card {
+            background: rgba(26, 26, 46, 0.6);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: 40px;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent 30%, rgba(255, 107, 139, 0.03) 100%);
+            z-index: -1;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(255, 107, 139, 0.2);
+            box-shadow: 
+                0 20px 40px rgba(0, 0, 0, 0.3),
+                0 0 0 1px rgba(255, 107, 139, 0.1);
+        }
+
+        .card-title {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: var(--accent);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .card-title i {
+            font-size: 1.5rem;
+        }
+
+        /* 技能标签 */
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .skill-tag {
+            padding: 10px 20px;
+            background: rgba(255, 107, 139, 0.1);
+            border: 1px solid rgba(255, 107, 139, 0.2);
+            border-radius: 50px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.9rem;
+            color: var(--text);
+            transition: var(--transition);
+        }
+
+        .skill-tag:hover {
+            background: rgba(255, 107, 139, 0.2);
+            transform: translateY(-2px);
+        }
+
+        /* 项目展示 */
+        .project-showcase {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .project-card {
+            background: rgba(26, 26, 46, 0.6);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: var(--transition);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(122, 87, 209, 0.3);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
+        }
+
+        .project-video {
+            width: 100%;
+            height: 250px;
+            background: #000;
+            overflow: hidden;
+        }
+
+        .project-video iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .project-content {
+            padding: 30px;
+        }
+
+        /* 数字人项目特殊样式 */
+        .ai-project {
+            grid-column: 1 / -1;
+            background: linear-gradient(135deg, rgba(26, 26, 46, 0.8) 0%, rgba(40, 20, 60, 0.8) 100%);
+            border: 1px solid rgba(0, 212, 255, 0.2);
+        }
+
+        .ai-project:hover {
+            border-color: rgba(0, 212, 255, 0.4);
+            box-shadow: 0 30px 60px rgba(0, 212, 255, 0.1);
+        }
+
+        .tech-stack {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin: 20px 0;
+        }
+
+        .tech-item {
+            padding: 8px 16px;
+            background: rgba(0, 212, 255, 0.1);
+            border: 1px solid rgba(0, 212, 255, 0.3);
+            border-radius: 50px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.9rem;
+        }
+
+        /* 联系信息 */
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            margin-top: 40px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 15px;
+            transition: var(--transition);
+        }
+
+        .contact-item:hover {
+            background: rgba(255, 107, 139, 0.05);
+            transform: translateX(10px);
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 107, 139, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: var(--accent);
+        }
+
+        /* 页脚 */
+        .footer {
+            text-align: center;
+            padding: 60px 0 40px;
+            margin-top: 100px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .signature {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: var(--accent);
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 1200px) {
+            .profile-container {
+                position: relative;
+                margin: 60px auto;
+                width: 300px;
+                height: 400px;
+            }
+            
+            .name {
+                font-size: 4.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 60px 20px;
+            }
+            
+            .name {
+                font-size: 3.5rem;
+            }
+            
+            .card-grid,
+            .project-showcase {
+                grid-template-columns: 1fr;
+            }
+            
+            .music-player {
+                top: 20px;
+                right: 20px;
+                padding: 8px 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 背景粒子 -->
+    <div id="particles-js"></div>
+
+    <!-- 音乐播放器 -->
+    <div class="music-player">
+        <div class="music-info">
+            <div id="song-title">Clair de Lune</div>
+            <div id="song-artist">Debussy</div>
+        </div>
+        <div class="music-controls">
+            <button class="music-btn" id="prev-btn"><i class="fas fa-step-backward"></i></button>
+            <button class="music-btn" id="play-btn"><i class="fas fa-play"></i></button>
+            <button class="music-btn" id="next-btn"><i class="fas fa-step-forward"></i></button>
+        </div>
+        <audio id="background-music" loop>
+            <source src="https://assets.codepen.io/1468070/Clair+de+Lune.mp3" type="audio/mpeg">
+        </audio>
+    </div>
+
+    <div class="container">
+        <!-- 英雄区域 -->
+        <section class="hero-section">
+            <div class="title-container">
+                <h1 class="name">ZEYU ZHANG</h1>
+                <h2 class="subtitle">APPLIED MATHEMATICS × COMPUTATIONAL SCIENCES</h2>
+                <p class="subtitle">DUKE KUNSHAN UNIVERSITY & DUKE UNIVERSITY</p>
+                
+                <div class="quote">
+                    "Where mathematics meets art, and computation becomes poetry.<br>
+                    In the silence between algorithms, I seek the meaning of existence."
+                </div>
+            </div>
+
+            <div class="profile-container">
+                <div class="profile-frame">
+                    <img src="selfpic.jpg" alt="Zeyu Zhang" class="profile-img" id="profile-img">
+                </div>
+            </div>
+        </section>
+
+        <!-- 学术成就 -->
+        <section class="section" id="academics">
+            <h2 class="section-title">Academic Excellence</h2>
+            
+            <div class="card-grid">
+                <div class="card">
+                    <h3 class="card-title"><i class="fas fa-award"></i> Academic Record</h3>
+                    <p><strong>GPA:</strong> 3.87/4.0</p>
+                    <p><strong>Dean's List:</strong> Distinction Spring 2024, Fall 2024, Spring 2025</p>
+                    <p><strong>Status:</strong> Junior</p>
+                </div>
+                
+                <div class="card">
+                    <h3 class="card-title"><i class="fas fa-book"></i> Course Highlights</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Calculus</span>
+                        <span class="skill-tag">Multivariable Calculus</span>
+                        <span class="skill-tag">Linear Algebra</span>
+                        <span class="skill-tag">Probability & Statistics</span>
+                        <span class="skill-tag">Data Structures</span>
+                        <span class="skill-tag">Computer Organization</span>
+                        <span class="skill-tag">Computer Graphics</span>
+                        <span class="skill-tag">Machine Learning</span>
+                        <span class="skill-tag">Algorithms</span>
+                        <span class="skill-tag">Database Systems</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 技能 -->
+        <section class="section" id="skills">
+            <h2 class="section-title">Technical Palette</h2>
+            
+            <div class="card-grid">
+                <div class="card">
+                    <h3 class="card-title"><i class="fas fa-code"></i> Programming</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">Java</span>
+                        <span class="skill-tag">C</span>
+                        <span class="skill-tag">JavaScript</span>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <h3 class="card-title"><i class="fas fa-chart-line"></i> Data Science</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Pandas</span>
+                        <span class="skill-tag">NumPy</span>
+                        <span class="skill-tag">Scikit-learn</span>
+                        <span class="skill-tag">TensorFlow</span>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <h3 class="card-title"><i class="fas fa-brain"></i> AI & ML</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Diffusion Models</span>
+                        <span class="skill-tag">LLM Integration</span>
+                        <span class="skill-tag">Computer Vision</span>
+                        <span class="skill-tag">Neural Networks</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 项目展示 -->
+        <section class="section" id="projects">
+            <h2 class="section-title">Creative Projects</h2>
+            
+            <div class="project-showcase">
+                <!-- Bubble Factory -->
+                <div class="project-card">
+                    <div class="project-video">
+                        <iframe src="//player.bilibili.com/player.html?bvid=BV1fbFkzYEpX&page=1&high_quality=1&danmaku=0"></iframe>
+                    </div>
+                    <div class="project-content">
+                        <h3>Bubble Factory</h3>
+                        <p>Java-based game with intelligent NPC systems and interactive gameplay mechanics.</p>
+                        <a href="https://github.com/Ze-ha/Bubble-factory" target="_blank" style="color: var(--accent);">View on GitHub →</a>
+                    </div>
+                </div>
+                
+                <!-- Interstellar Analysis -->
+                <div class="project-card">
+                    <div class="project-video">
+                        <iframe src="//player.bilibili.com/player.html?bvid=BV1BbFkzYE2w&page=1&high_quality=1&danmaku=0"></iframe>
+                    </div>
+                    <div class="project-content">
+                        <h3>Interstellar Analysis</h3>
+                        <p>Data visualization project analyzing scientific concepts from the film Interstellar.</p>
+                        <a href="https://github.com/Ze-ha/STATS-Course-Project-work" target="_blank" style="color: var(--accent);">View on GitHub →</a>
+                    </div>
+                </div>
+                
+                <!-- Van Gogh Generator -->
+                <div class="project-card">
+                    <div class="project-video">
+                        <iframe src="//player.bilibili.com/player.html?bvid=BV12VFkzCEwK&page=1&high_quality=1&danmaku=0"></iframe>
+                    </div>
+                    <div class="project-content">
+                        <h3>Van Gogh Style Generator</h3>
+                        <p>Artistic style transfer system creating Van Gogh-inspired artwork through code.</p>
+                        <a href="https://github.com/Ze-ha/CS-and-Art/tree/main" target="_blank" style="color: var(--accent);">View on GitHub →</a>
+                    </div>
+                </div>
+                
+                <!-- AI Digital Human -->
+                <div class="project-card ai-project">
+                    <div class="project-content">
+                        <h3>AI Digital Human Assistant</h3>
+                        <p><strong>AI Internship Project:</strong> LLM-powered digital avatar for educational counseling</p>
+                        
+                        <div class="tech-stack">
+                            <span class="tech-item">Next.js</span>
+                            <span class="tech-item">Python</span>
+                            <span class="tech-item">VAD</span>
+                            <span class="tech-item">ASR</span>
+                            <span class="tech-item">LLM</span>
+                            <span class="tech-item">TTS</span>
+                            <span class="tech-item">WebRTC</span>
+                        </div>
+                        
+                        <p><strong>Application:</strong> College counseling for Seattle high school students</p>
+                        <p><strong>Contribution:</strong> End-to-end AI dialogue system with low-latency optimization</p>
+                        
+                        <div style="margin-top: 20px; text-align: center;">
+                            <img src="https://raw.githubusercontent.com/Ze-ha/Zeyu_Zhang.github.io/main/1.png" 
+                                 alt="AI Digital Human System"
+                                 style="width: 100%; border-radius: 10px; margin-top: 20px; border: 1px solid rgba(0,212,255,0.2);">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 联系 -->
+        <section class="section" id="contact">
+            <h2 class="section-title">Connect</h2>
+            
+            <div class="contact-info">
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div>
+                        <h3>Email</h3>
+                        <p>zz360@duke.edu</p>
+                        <p>zeyu.zhang@dukekunshan.edu.cn</p>
+                    </div>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fab fa-github"></i>
+                    </div>
+                    <div>
+                        <h3>GitHub</h3>
+                        <p><a href="https://github.com/Ze-ha" target="_blank" style="color: var(--accent);">github.com/Ze-ha</a></p>
+                    </div>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <div>
+                        <h3>Education</h3>
+                        <p>Duke Kunshan University</p>
+                        <p>Duke University</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 页脚 -->
+        <footer class="footer">
+            <div class="signature">Z.Z</div>
+            <p>Where mathematics dances with art, and algorithms whisper poetry</p>
+            <p style="margin-top: 20px; opacity: 0.7;">© 2024 Zeyu Zhang | All rights reserved</p>
+        </footer>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script>
+        // 粒子背景
+        particlesJS("particles-js", {
+            particles: {
+                number: { value: 80, density: { enable: true, value_area: 800 } },
+                color: { value: "#ffffff" },
+                shape: { type: "circle" },
+                opacity: { value: 0.3, random: true },
+                size: { value: 3, random: true },
+                line_linked: {
+                    enable: true,
+                    distance: 150,
+                    color: "#7a57d1",
+                    opacity: 0.2,
+                    width: 1
+                },
+                move: { enable: true, speed: 1, direction: "none", random: true }
+            },
+            interactivity: {
+                detect_on: "canvas",
+                events: {
+                    onhover: { enable: true, mode: "repulse" },
+                    onclick: { enable: true, mode: "push" }
+                }
+            }
+        });
+
+        // 音乐播放器
+        const music = document.getElementById('background-music');
+        const playBtn = document.getElementById('play-btn');
+        const prevBtn = document.getElementById('prev-btn');
+        const nextBtn = document.getElementById('next-btn');
+        const songTitle = document.getElementById('song-title');
+        const songArtist = document.getElementById('song-artist');
+
+        const playlist = [
+            { title: "Clair de Lune", artist: "Debussy", src: "https://assets.codepen.io/1468070/Clair+de+Lune.mp3" },
+            { title: "Gymnopédie No.1", artist: "Satie", src: "https://assets.codepen.io/1468070/Erik+Satie+-+Gymnop%E9die+No+1.mp3" },
+            { title: "Nocturne Op.9 No.2", artist: "Chopin", src: "https://assets.codepen.io/1468070/Chopin+Nocturne+Op+9+No+2.mp3" }
+        ];
+
+        let currentSong = 0;
+
+        function updateSongInfo() {
+            songTitle.textContent = playlist[currentSong].title;
+            songArtist.textContent = playlist[currentSong].artist;
+            music.src = playlist[currentSong].src;
+        }
+
+        playBtn.addEventListener('click', () => {
+            if (music.paused) {
+                music.play();
+                playBtn.innerHTML = '<i class="fas fa-pause"></i>';
+            } else {
+                music.pause();
+                playBtn.innerHTML = '<i class="fas fa-play"></i>';
+            }
+        });
+
+        prevBtn.addEventListener('click', () => {
+            currentSong = (currentSong - 1 + playlist.length) % playlist.length;
+            updateSongInfo();
+            music.play();
+            playBtn.innerHTML = '<i class="fas fa-pause"></i>';
+        });
+
+        nextBtn.addEventListener('click', () => {
+            currentSong = (currentSong + 1) % playlist.length;
+            updateSongInfo();
+            music.play();
+            playBtn.innerHTML = '<i class="fas fa-pause"></i>';
+        });
+
+        // 自动播放（需要用户交互后）
+        document.addEventListener('click', () => {
+            if (music.paused) {
+                music.play().then(() => {
+                    playBtn.innerHTML = '<i class="fas fa-pause"></i>';
+                }).catch(e => console.log("Auto-play prevented:", e));
+            }
+        }, { once: true });
+
+        // 滚动动画
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // 观察所有卡片
+        document.querySelectorAll('.card, .project-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+            observer.observe(el);
+        });
+
+        // 图片加载错误处理
+        document.getElementById('profile-img').onerror = function() {
+            this.src = 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80';
+        };
+    </script>
 </body>
 </html>
